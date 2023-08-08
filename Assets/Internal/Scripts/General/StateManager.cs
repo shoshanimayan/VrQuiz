@@ -23,12 +23,12 @@ namespace Core
 
 		///  LISTNER METHODS          ///
 
-		
-
+		private void OnStateChanged(StateChangeSignal signal)
+		{
+			SetState(signal.ToState);
+		}
 
 		///  PUBLIC API               ///
-		
-		
 
 		public State GetState()
 		{
@@ -41,13 +41,6 @@ namespace Core
 			_signalBus.Fire(new StateChangedSignal() { ToState = state });
 			
 		}
-
-		private void OnStateChanged(StateChangeSignal signal)
-		{
-			SetState(signal.ToState);
-		}
-
-
 
 
 		///    Implementation        ///

@@ -17,10 +17,18 @@ namespace UI
 
 		///  PRIVATE METHODS           ///
 
-
-
-
 		///  LISTNER METHODS           ///
+		private void OnStateChanged(State state)
+		{
+			if (state == State.Menu)
+			{
+
+			}
+			else
+			{
+
+			}
+		}
 
 		///  PUBLIC API                ///
 
@@ -52,6 +60,8 @@ namespace UI
 		public void Initialize()
 		{
 			_view.Init(this);
+			_signalBus.GetStream<StateChangedSignal>()
+					   .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
 		}
 
 		public void Dispose()
