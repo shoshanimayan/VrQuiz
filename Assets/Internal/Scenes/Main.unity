@@ -12803,8 +12803,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ManipulationInteractionGroup: {fileID: 940454499}
   m_DirectInteractor: {fileID: 1379394757}
-  m_RayInteractor: {fileID: 2003472045}
-  m_TeleportInteractor: {fileID: 2080870578}
+  m_RayInteractor: {fileID: 0}
+  m_TeleportInteractor: {fileID: 0}
   m_TeleportModeActivate: {fileID: 1263111715868034790, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   m_TeleportModeCancel: {fileID: 737890489006591557, guid: c348712bda248c246b8c49b3db54643f,
@@ -15965,8 +15965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ManipulationInteractionGroup: {fileID: 1130153117}
   m_DirectInteractor: {fileID: 1076175760}
-  m_RayInteractor: {fileID: 1830250822}
-  m_TeleportInteractor: {fileID: 2079031728}
+  m_RayInteractor: {fileID: 0}
+  m_TeleportInteractor: {fileID: 0}
   m_TeleportModeActivate: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   m_TeleportModeCancel: {fileID: 2307464322626738743, guid: c348712bda248c246b8c49b3db54643f,
