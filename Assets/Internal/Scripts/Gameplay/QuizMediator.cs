@@ -6,10 +6,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals;
-using Gameplay;
-namespace UI
+
+namespace Gameplay
 {
-	public class MainMenuMediator: MediatorBase<MainMenuView>, IInitializable, IDisposable
+	public class QuizMediator: MediatorBase<QuizView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -17,13 +17,13 @@ namespace UI
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
+
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
-			if (state == State.Menu)
+			if (state == State.Loading)
 			{
 				_view.Display(true);
-				_view.SetScoreUI(_gameSettings.GetTopScore());
 
 			}
 			else
@@ -32,48 +32,20 @@ namespace UI
 
 			}
 		}
-
 		///  PUBLIC API                ///
-
-		public void InitializePlay()
-		{
-			_signalBus.Fire(new StateChangeSignal { ToState = State.Loading });
-		}
-
-		public void SetQuestionNumber(int number)
-		{
-
-			_signalBus.Fire(new SetQuestionNumberSignal { QuestionNumber = number }); 
-
-		}
-
-		public void SetQuestionTime(float time)
-		{
-
-			_signalBus.Fire(new SetQuestionTimeSignal { QuestionTime = time }); 
-
-		}
 
 		///  IMPLEMENTATION            ///
 
 		[Inject]
+
 		private SignalBus _signalBus;
-
-		[Inject]
-		private GameSettings _gameSettings;
-
-		[Inject]
-		private StateManager _stateManager;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
-			_view.Init(this);
 			_signalBus.GetStream<StateChangedSignal>()
 					   .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
-			_signalBus.Fire(new StateChangeSignal { ToState = State.Menu });
-
 		}
 
 		public void Dispose()

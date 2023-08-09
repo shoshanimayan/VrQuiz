@@ -17,6 +17,10 @@ public class MainInstaller : MonoInstaller
         Container.Bind<GameSettings>().AsSingle();
 
         Container.BindMediatorView<MainMenuMediator,MainMenuView>();
+        Container.BindMediatorView<LoadingUIMediator,LoadingUIView>();
+        Container.BindMediatorView<QuizMediator, QuizView>();
+        Container.BindMediatorView<QuizButtonMediator, QuizButtonView>();
+
 
         //signals
         Container.DeclareSignal<StateChangeSignal>();

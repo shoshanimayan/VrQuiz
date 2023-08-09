@@ -112,7 +112,7 @@ namespace UI
 
 		public void Play()
 		{
-			_mediator.SetPlayState();
+			_mediator.InitializePlay();
 		}
 
 		
