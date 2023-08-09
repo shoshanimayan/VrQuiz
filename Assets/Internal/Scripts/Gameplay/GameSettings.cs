@@ -7,7 +7,7 @@ using UniRx;
 using Signals;
 namespace Gameplay
 {
-	public class GameSettings: MonoBehaviour
+	public class GameSettings:  IDisposable
 	{
 
 		///  INSPECTOR VARIABLES      ///
@@ -35,6 +35,11 @@ namespace Gameplay
 		{
 			_questionTime = time;
 		}
+
+		private void OnTopScoreChanged(int score)
+		{
+			_topScore=score;
+		}
 		///  PUBLIC API               ///
 
 		public int GetQuestionNumber()
@@ -47,22 +52,46 @@ namespace Gameplay
 			return _questionTime;
 		}
 
+		public int GetTopScore()
+		{
+			return _topScore;
+		}
+
+		
+
 		///    Implementation        ///
 
-		[Inject]
+		
 
-		private SignalBus _signalBus;
+		readonly SignalBus _signalBus;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
-		public void Initialize()
+		public GameSettings(SignalBus signalBus)
 		{
+			_signalBus = signalBus;
+			if (PlayerPrefs.HasKey("topScore"))
+			{
+				int n = PlayerPrefs.GetInt("topScore");
+				_topScore = n;
+
+			}
+			else
+			{
+				PlayerPrefs.SetInt("topScore", 0);
+
+
+			}
+
 			_signalBus.GetStream<SetQuestionNumberSignal>()
 					   .Subscribe(x => OnQuestionNumberChanged(x.QuestionNumber)).AddTo(_disposables);
 			_signalBus.GetStream<SetQuestionTimeSignal>()
 					   .Subscribe(x => OnQuestionTimeChanged(x.QuestionTime)).AddTo(_disposables);
-
+			_signalBus.GetStream<SetTopScoreSignal>()
+					   .Subscribe(x => OnTopScoreChanged(x.Score)).AddTo(_disposables);
 		}
+
+		
 
 		public void Dispose()
 		{

@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals;
+using Gameplay;
 namespace UI
 {
 	public class MainMenuMediator: MediatorBase<MainMenuView>, IInitializable, IDisposable
@@ -22,6 +23,8 @@ namespace UI
 			if (state == State.Menu)
 			{
 				_view.Display(true);
+				_view.SetScoreUI(_gameSettings.GetTopScore());
+
 			}
 			else
 			{
@@ -54,8 +57,13 @@ namespace UI
 		///  IMPLEMENTATION            ///
 
 		[Inject]
-
 		private SignalBus _signalBus;
+
+		[Inject]
+		private GameSettings _gameSettings;
+
+		[Inject]
+		private StateManager _stateManager;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -64,6 +72,8 @@ namespace UI
 			_view.Init(this);
 			_signalBus.GetStream<StateChangedSignal>()
 					   .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+			_signalBus.Fire(new StateChangeSignal { ToState = State.Menu });
+
 		}
 
 		public void Dispose()

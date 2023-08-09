@@ -4,6 +4,8 @@ using Core;
 using Utility;
 using UI;
 using Signals;
+using Gameplay;
+
 public class MainInstaller : MonoInstaller
 {
     public override void InstallBindings()
@@ -12,6 +14,8 @@ public class MainInstaller : MonoInstaller
 
         //binding
         Container.Bind<StateManager>().AsSingle();
+        Container.Bind<GameSettings>().AsSingle();
+
         Container.BindMediatorView<MainMenuMediator,MainMenuView>();
 
         //signals

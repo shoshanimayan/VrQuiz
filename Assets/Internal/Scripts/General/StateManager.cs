@@ -9,7 +9,7 @@ using Signals;
 namespace Core
 {
 	public enum State {Menu,Play}
-	public class StateManager : IstateManager
+	public class StateManager :  IDisposable
 	{
 
 
@@ -45,18 +45,22 @@ namespace Core
 
 		///    Implementation        ///
 
-		[Inject]
-
-		private SignalBus _signalBus;
-
+		readonly SignalBus _signalBus;
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
-		public void Initialize()
+		public StateManager(SignalBus signalBus)
 		{
-			
+
+			_signalBus = signalBus;
+			_state = State.Menu;
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
+
+
 		}
+
+
+		
 
 		public void Dispose()
 		{

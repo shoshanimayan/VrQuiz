@@ -15,16 +15,24 @@ namespace UI
 		[SerializeField] private Canvas _canvas;
 		[SerializeField] private TMP_Dropdown  _numberDropdown;
 		[SerializeField] private TMP_Dropdown _timeDropdown;
-
+		[SerializeField] private TextMeshProUGUI _ScoreText;
 
 		///  PRIVATE VARIABLES         ///
 		private MainMenuMediator _mediator;
 		///  PRIVATE METHODS           ///
 		private void Awake()
 		{
+			
+		}
+		///  PUBLIC API                ///
+		public void Init(MainMenuMediator mediator)
+		{
+			_mediator = mediator;
+
 			if (PlayerPrefs.HasKey("number"))
 			{
 				int n = PlayerPrefs.GetInt("number");
+
 				_numberDropdown.value = n;
 				int val = 0;
 				switch (n)
@@ -52,7 +60,7 @@ namespace UI
 			else
 			{
 				PlayerPrefs.SetInt("number", 0);
-				
+
 
 			}
 
@@ -86,14 +94,14 @@ namespace UI
 			else
 			{
 				PlayerPrefs.SetInt("time", 0);
-				
+
 
 			}
 		}
-		///  PUBLIC API                ///
-		public void Init(MainMenuMediator mediator)
+
+		public void SetScoreUI(int score)
 		{
-			_mediator = mediator;
+			_ScoreText.text = score.ToString();
 		}
 
 
