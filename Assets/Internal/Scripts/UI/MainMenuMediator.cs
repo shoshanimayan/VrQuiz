@@ -16,16 +16,16 @@ namespace UI
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
-
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
 			if (state == State.Menu)
 			{
-
+				_view.Display(true);
 			}
 			else
 			{
+				_view.Display(false);
 
 			}
 		}
@@ -39,12 +39,14 @@ namespace UI
 
 		public void SetQuestionNumber(int number)
 		{
+
 			_signalBus.Fire(new SetQuestionNumberSignal { QuestionNumber = number }); 
 
 		}
 
 		public void SetQuestionTime(float time)
 		{
+
 			_signalBus.Fire(new SetQuestionTimeSignal { QuestionTime = time }); 
 
 		}
