@@ -18,6 +18,7 @@ namespace Gameplay
 
 		///  PRIVATE METHODS           ///
 
+
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
