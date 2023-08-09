@@ -727,6 +727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 141707845}
+  _timerText: {fileID: 1909300133}
+  _questionText: {fileID: 637910228}
 --- !u!114 &141707842
 MonoBehaviour:
   m_ObjectHideFlags: 0
