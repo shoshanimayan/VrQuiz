@@ -67,7 +67,7 @@ namespace UI
 			if (PlayerPrefs.HasKey("time"))
 			{
 				int n = PlayerPrefs.GetInt("time");
-				_numberDropdown.value = n;
+				_timeDropdown.value = n;
 				float val = 0;
 				switch (n)
 				{

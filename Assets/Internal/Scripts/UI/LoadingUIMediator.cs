@@ -36,14 +36,14 @@ namespace UI
 
 		///  IMPLEMENTATION            ///
 
-		[Inject]
-
-		private SignalBus _signalBus;
+		[Inject] private SignalBus _signalBus;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
+			_view.Display(false);
+
 			_signalBus.GetStream<StateChangedSignal>()
 								   .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
 		}

@@ -19,7 +19,7 @@ public class MainInstaller : MonoInstaller
         Container.BindMediatorView<MainMenuMediator,MainMenuView>();
         Container.BindMediatorView<LoadingUIMediator,LoadingUIView>();
         Container.BindMediatorView<QuizMediator, QuizView>();
-        Container.BindMediatorView<QuizButtonMediator, QuizButtonView>();
+     //   Container.BindMediatorView<QuizButtonMediator, QuizButtonView>();
 
 
         //signals

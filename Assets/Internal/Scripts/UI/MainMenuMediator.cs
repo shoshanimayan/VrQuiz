@@ -20,6 +20,7 @@ namespace UI
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
+
 			if (state == State.Menu)
 			{
 				_view.Display(true);

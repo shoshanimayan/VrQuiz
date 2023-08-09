@@ -22,7 +22,7 @@ namespace Gameplay
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
-			if (state == State.Loading)
+			if (state == State.Play)
 			{
 				_view.Display(true);
 
@@ -45,6 +45,7 @@ namespace Gameplay
 
 		public void Initialize()
 		{
+			_view.Display(false);
 			_signalBus.GetStream<StateChangedSignal>()
 					   .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
 		}

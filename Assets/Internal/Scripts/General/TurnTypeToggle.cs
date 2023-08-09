@@ -35,6 +35,7 @@ namespace General
 
         private void SetTurnType(int TurnType)
         {
+            PlayerPrefs.SetInt("turn", TurnType);
 
             if (TurnType == 0)
             {
