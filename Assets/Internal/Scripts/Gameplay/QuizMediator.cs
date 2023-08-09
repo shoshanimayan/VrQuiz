@@ -36,9 +36,9 @@ namespace Gameplay
 
 		///  IMPLEMENTATION            ///
 
-		[Inject]
+		[Inject] private SignalBus _signalBus;
+		[Inject] private GameSettings _gameSettings;
 
-		private SignalBus _signalBus;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 

@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals;
+using Gameplay;
 
 namespace Network
 {
@@ -32,9 +33,9 @@ namespace Network
 
 		///  IMPLEMENTATION            ///
 
-		[Inject]
+		[Inject] private SignalBus _signalBus;
 
-		private SignalBus _signalBus;
+		[Inject] private GameSettings _gameSettings;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
