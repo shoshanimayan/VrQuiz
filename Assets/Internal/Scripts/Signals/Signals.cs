@@ -31,5 +31,13 @@ namespace Signals
 	{
 		public int Score;
 	}
+
+	public class AudioBlipSignal
+	{
+		public string clipName;
+		public Transform transform = null;
+	}
+
 	
+
 }

@@ -115,8 +115,11 @@ namespace UI
 			_mediator.InitializePlay();
 		}
 
-		
-		
+
+		public void ClickAudio(Transform t)
+		{
+			_mediator.PlayClickAudio(t);
+		}
 
 		public void OnQuestionNumberChange(TMP_Dropdown index)
 		{

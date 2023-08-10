@@ -55,6 +55,11 @@ namespace UI
 
 		}
 
+		public void PlayClickAudio(Transform t)
+		{
+			_signalBus.Fire(new AudioBlipSignal { clipName = "click", transform = t});
+		}
+
 		///  IMPLEMENTATION            ///
 
 		[Inject]

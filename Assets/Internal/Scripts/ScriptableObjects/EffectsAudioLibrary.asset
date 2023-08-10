@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ceab0022ddd5644983f7e677fb63d0, type: 3}
+  m_Name: EffectsAudioLibrary
+  m_EditorClassIdentifier: 
+  inspectorDictionary:
+  - key: click
+    value: {fileID: 8300000, guid: 28ef5f145c7159b4d843382da4c57766, type: 3}
+  - key: correct
+    value: {fileID: 8300000, guid: 39fbbb4c47626ea4db62c75e2eec614c, type: 3}
+  - key: Incorrect
+    value: {fileID: 8300000, guid: 0f056d26f024ebb4fb4e06f46d9f46c0, type: 3}
+  - key: end
+    value: {fileID: 8300000, guid: 2515ca9a974dc0940ba8be141641ec31, type: 3}
