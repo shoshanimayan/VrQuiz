@@ -7,6 +7,7 @@ using Signals;
 using Gameplay;
 using Audio;
 using Network;
+using General;
 
 public class MainInstaller : MonoInstaller
 {
@@ -24,6 +25,7 @@ public class MainInstaller : MonoInstaller
         Container.BindMediatorView<MusicMediator, MusicView>();
         Container.BindMediatorView<SoundEffectMediator, SoundEffectView>();
         Container.BindMediatorView<NetworkHandlerMediator,NetworkHandlerView>();
+        Container.BindMediatorView<TurnTypeMediator,TurnTypeView>();
 
 
         //signals
