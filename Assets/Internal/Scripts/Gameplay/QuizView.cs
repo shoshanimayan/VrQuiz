@@ -34,6 +34,7 @@ namespace Gameplay
 		public TextMeshProUGUI Question4;
 
 		public TextMeshProUGUI EndScore;
+		public TextMeshProUGUI QuestionCount;
 
 
 		public Canvas Side1;
@@ -115,6 +116,11 @@ namespace Gameplay
 		public void Initialize(QuizMediator mediator)
 		{
 			_mediator = mediator;
+		}
+
+		public void SetQuestionCount(string count)
+		{
+			QuestionCount.text = count;
 		}
 
 		

@@ -41,8 +41,11 @@ namespace Gameplay
 
 		private void OnTopScoreChanged(int score)
 		{
+
 			if (score > _topScore)
 			{
+				PlayerPrefs.SetInt("topScore", score);
+
 				_topScore = score;
 			}
 		}

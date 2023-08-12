@@ -24,12 +24,11 @@ namespace Gameplay
 
 		private List<Question> _questions = new List<Question>();
 		private int _score = 0;
-
 		
 		///  PRIVATE METHODS           ///
 		private void SetQuestionUI()
 		{
-
+			SetQuestionCount();
 			_view.CorrectDisplay.enabled = false;
 			_view.IncorrectDisplay.enabled = false;
 			var body = _questions[0].Body;
@@ -51,15 +50,25 @@ namespace Gameplay
 			_view.DisplayQuestion(true);
 		}
 
-		
+		private void SetQuestionCount(bool enabled=true)
+		{
+			if (enabled)
+			{
+				_view.SetQuestionCount(((_gameSettings.GetQuestionNumber() - _questions.Count)+1).ToString() + "/" + _gameSettings.GetQuestionNumber().ToString());
+			}
+			else
+			{
+				_view.SetQuestionCount("");
+			}
+		}
 
 		private void SetAnswerUI(bool answer)
 		{
+			SetQuestionCount(false);
 			_view.DisplayQuestion(false);
 			_view.SetTimer(false);
 			_view.Side1.enabled = false;
 			_view.Side2.enabled = false;
-
 			if (answer)
 			{
 				_view.CorrectDisplay.enabled = true;
@@ -87,7 +96,13 @@ namespace Gameplay
 
 		private void End()
 		{
-			
+			_view.DisplayQuestion(false);
+			_view.SetTimer(false);
+			_view.Side1.enabled = false;
+			_view.Side2.enabled = false;
+			SetQuestionCount(false);
+			_view.CorrectDisplay.enabled = false;
+			_view.IncorrectDisplay.enabled = false;
 			_signalBus.Fire(new AudioBlipSignal { clipName = "end" });
 			_signalBus.Fire(new SetTopScoreSignal { Score=_score});
 			_view.SetTimer(false);
