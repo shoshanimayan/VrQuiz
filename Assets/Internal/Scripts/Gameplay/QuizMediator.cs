@@ -78,7 +78,7 @@ namespace Gameplay
 				_view.IncorrectDisplay.enabled = true;
 
 			}
-			DelayedNextQuestion(5);
+			DelayedNextQuestion(2.5f);
 
 		}
 
@@ -112,9 +112,9 @@ namespace Gameplay
 
 		}
 
-		private async void DelayedNextQuestion(int seconds)
+		private async void DelayedNextQuestion(float seconds)
 		{
-			await Task.Delay(1000*seconds);
+			await Task.Delay((int)(1000*seconds));
 			NextQuestion();
 
 		}
