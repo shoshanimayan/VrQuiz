@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 namespace UI
 {
@@ -13,16 +14,20 @@ namespace UI
 
 		///  INSPECTOR VARIABLES       ///
 		[SerializeField] private Canvas _canvas;
+		[SerializeField] private TrackedDeviceGraphicRaycaster _tracked;
+		[SerializeField] private GraphicRaycaster _graphic;
+
 		[SerializeField] private TMP_Dropdown  _numberDropdown;
 		[SerializeField] private TMP_Dropdown _timeDropdown;
 		[SerializeField] private TextMeshProUGUI _ScoreText;
 
 		///  PRIVATE VARIABLES         ///
 		private MainMenuMediator _mediator;
+		private Vector3 _origin;
 		///  PRIVATE METHODS           ///
 		private void Awake()
 		{
-			
+			_origin = transform.localPosition;
 		}
 		///  PUBLIC API                ///
 		public void Init(MainMenuMediator mediator)
@@ -108,6 +113,16 @@ namespace UI
 		public void Display(bool display)
 		{
 			_canvas.enabled = display;
+			_graphic.enabled = display;
+			_tracked.enabled = display;
+			if (display)
+			{
+				transform.localPosition = _origin;
+			}
+			else
+			{
+				transform.localPosition = new Vector3(_origin.x, _origin.y + 10, _origin.z);
+			}
 		}
 
 		public void Play()
