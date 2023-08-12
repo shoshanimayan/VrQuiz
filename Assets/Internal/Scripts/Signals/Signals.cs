@@ -37,10 +37,7 @@ namespace Signals
 		public string clipName;
 	}
 
-	public class AnswerSignal
-	{
-		public string Answer;
-	}
+	
 
 	
 

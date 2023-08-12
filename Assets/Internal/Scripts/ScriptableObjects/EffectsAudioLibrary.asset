@@ -17,7 +17,7 @@ MonoBehaviour:
     value: {fileID: 8300000, guid: 5a6f4637f13bf5f408d7f31deb2981c3, type: 3}
   - key: correct
     value: {fileID: 8300000, guid: 39fbbb4c47626ea4db62c75e2eec614c, type: 3}
-  - key: Incorrect
+  - key: incorrect
     value: {fileID: 8300000, guid: 0f056d26f024ebb4fb4e06f46d9f46c0, type: 3}
   - key: end
     value: {fileID: 8300000, guid: 2515ca9a974dc0940ba8be141641ec31, type: 3}

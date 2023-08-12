@@ -41,7 +41,10 @@ namespace Gameplay
 
 		private void OnTopScoreChanged(int score)
 		{
-			_topScore=score;
+			if (score > _topScore)
+			{
+				_topScore = score;
+			}
 		}
 		///  PUBLIC API               ///
 

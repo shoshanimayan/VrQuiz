@@ -14,31 +14,109 @@ namespace Gameplay
 		[SerializeField] private TextMeshProUGUI _timerText;
 		[SerializeField] private TextMeshProUGUI _questionText;
 
-		[SerializeField] private TextMeshProUGUI _question1;
-		[SerializeField] private TextMeshProUGUI _question2;
-		[SerializeField] private TextMeshProUGUI _question3;
-		[SerializeField] private TextMeshProUGUI _question4;
+		
 
 
 		///  PRIVATE VARIABLES         ///
+		private QuizMediator _mediator;
 
+
+		private bool _canCountDown;
+		private float _timer;
 		///  PRIVATE METHODS           ///
 
 		///  PUBLIC API                ///
+
+
+		public TextMeshProUGUI Question1;
+		public TextMeshProUGUI Question2;
+		public TextMeshProUGUI Question3;
+		public TextMeshProUGUI Question4;
+
+		public TextMeshProUGUI EndScore;
+
+
+		public Canvas Side1;
+		public Canvas Side2;
+
+		public Canvas CorrectDisplay;
+		public Canvas IncorrectDisplay;
+		public Canvas EndDisplay;
+
+		private void Awake()
+		{
+			Side1.enabled = false;
+			Side2.enabled = false;
+			CorrectDisplay.enabled = false;
+			IncorrectDisplay.enabled = false;
+			EndDisplay.enabled = false;
+		}
+
 		public void Display(bool display)
 		{
 			_canvas.enabled = display;
+			if (display)
+			{
+				CorrectDisplay.enabled = false;
+				IncorrectDisplay.enabled = false;
+			}
 		}
 
-		public void SetTimer(string text)
+		public void SetTimer(bool enable, float time=0)
 		{
+			_canCountDown = enable;
+			if (!enable) 
+			{
+				return;
+			}
+			_timer = time;
 
-			_timerText.text = text;
+		}
+
+		private void Update()
+		{
+			if (_canCountDown)
+			{
+				_timer -= Time.deltaTime;
+				_timerText.text = "Time: " + ((int)_timer).ToString();
+				if (_timer <= 0)
+				{
+					_mediator.PlayIncorrectAudio();
+					_mediator.NextQuestion();
+				}
+			}
+			else
+			{
+				_timerText.text = "";
+			}
+
+		}
+
+		public void ReturnToMenu()
+		{
+			_mediator.ReturnToMenu();
 		}
 
 		public void SetQuestion(string text)
 		{
 			_questionText.text = text;
 		}
+
+		public void SendAnswer(TextMeshProUGUI QuestionText)
+		{
+			_mediator.CheckAnswer(QuestionText.text);
+		}
+
+		public void DisplayQuestion(bool enable)
+		{
+			_questionText.enabled = enable;
+		}
+
+		public void Initialize(QuizMediator mediator)
+		{
+			_mediator = mediator;
+		}
+
+		
 	}
 }

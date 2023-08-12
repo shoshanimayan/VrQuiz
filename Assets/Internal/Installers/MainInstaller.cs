@@ -23,7 +23,6 @@ public class MainInstaller : MonoInstaller
         Container.BindMediatorView<QuizMediator, QuizView>();
         Container.BindMediatorView<MusicMediator, MusicView>();
         Container.BindMediatorView<SoundEffectMediator, SoundEffectView>();
-
         Container.BindMediatorView<NetworkHandlerMediator,NetworkHandlerView>();
 
 
@@ -34,7 +33,6 @@ public class MainInstaller : MonoInstaller
         Container.DeclareSignal<SetQuestionTimeSignal>();
         Container.DeclareSignal<SetTopScoreSignal>();
         Container.DeclareSignal<AudioBlipSignal>();
-        Container.DeclareSignal<AnswerSignal>();
 
 
     }
