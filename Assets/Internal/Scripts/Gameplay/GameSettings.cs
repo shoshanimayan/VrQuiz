@@ -16,7 +16,7 @@ namespace Gameplay
 
 		///  PRIVATE VARIABLES         ///
 
-		private int _topScore=-1;
+		private int _topScore=0;
 
 		private int _questionNumber = 10;
 		private float _questionTime = 20f;
