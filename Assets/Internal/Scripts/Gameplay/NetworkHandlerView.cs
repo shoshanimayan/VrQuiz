@@ -2,9 +2,9 @@ using UnityEngine;
 using Core;
 using System.Collections;
 using System.Collections.Generic;
-namespace Network
+namespace Gameplay
 {
-	public class NetworkView: MonoBehaviour,IView
+	public class NetworkHandlerView: MonoBehaviour,IView
 	{
 
 		///  INSPECTOR VARIABLES       ///

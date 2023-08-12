@@ -5,6 +5,8 @@ using Zenject;
 using System;
 using UniRx;
 using Signals;
+using Core;
+
 namespace Gameplay
 {
 	public class GameSettings:  IDisposable
@@ -19,6 +21,7 @@ namespace Gameplay
 		private int _questionNumber = 10;
 		private float _questionTime = 20f;
 
+		private string _quiz;
 		///  PRIVATE METHODS          ///
 
 
@@ -57,11 +60,24 @@ namespace Gameplay
 			return _topScore;
 		}
 
-		
+		public void SetQuiz(string quiz)
+		{
+			_quiz = quiz;
+			_signalBus.Fire(new StateChangeSignal { ToState = State.Play });
+
+		}
+
+		public string GetQuiz()
+		{
+			return _quiz;
+
+		}
+
+
 
 		///    Implementation        ///
 
-		
+
 
 		readonly SignalBus _signalBus;
 

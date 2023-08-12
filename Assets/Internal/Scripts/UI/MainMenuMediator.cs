@@ -17,8 +17,9 @@ namespace UI
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
-		///  LISTNER METHODS           ///
-		private void OnStateChanged(State state)
+		
+///  LISTNER METHODS           ///
+private void OnStateChanged(State state)
 		{
 
 			if (state == State.Menu)
@@ -37,27 +38,25 @@ namespace UI
 		///  PUBLIC API                ///
 
 		public void InitializePlay()
-		{
+		{ 
 			_signalBus.Fire(new StateChangeSignal { ToState = State.Loading });
 		}
 
 		public void SetQuestionNumber(int number)
 		{
-
 			_signalBus.Fire(new SetQuestionNumberSignal { QuestionNumber = number }); 
 
 		}
 
 		public void SetQuestionTime(float time)
 		{
-
 			_signalBus.Fire(new SetQuestionTimeSignal { QuestionTime = time }); 
 
 		}
 
-		public void PlayClickAudio(Transform t)
+		public void PlayClickAudio()
 		{
-			_signalBus.Fire(new AudioBlipSignal { clipName = "click", transform = t});
+			_signalBus.Fire(new AudioBlipSignal { clipName = "click"});
 		}
 
 		///  IMPLEMENTATION            ///

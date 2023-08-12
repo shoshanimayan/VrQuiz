@@ -20,7 +20,7 @@ namespace Audio
 		///  LISTNER METHODS           ///
 		public void PlayAudio(AudioBlipSignal signal)
 		{
-			_view.PlayAudioClip(signal.clipName,signal.transform);
+			_view.PlayAudioClip(signal.clipName);
 
 		}
 		///  PUBLIC API                ///

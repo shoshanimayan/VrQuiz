@@ -112,14 +112,12 @@ namespace UI
 
 		public void Play()
 		{
+			_mediator.PlayClickAudio();
 			_mediator.InitializePlay();
 		}
 
 
-		public void ClickAudio(Transform t)
-		{
-			_mediator.PlayClickAudio(t);
-		}
+		
 
 		public void OnQuestionNumberChange(TMP_Dropdown index)
 		{
@@ -146,6 +144,8 @@ namespace UI
 
 			}
 			_mediator.SetQuestionNumber(val);
+			_mediator.PlayClickAudio();
+
 		}
 
 		public void OnQuestionTimeChange(TMP_Dropdown index)
@@ -173,10 +173,13 @@ namespace UI
 
 			}
 			_mediator.SetQuestionTime(val);
+			_mediator.PlayClickAudio();
+
 		}
 
 		public void ExitGame()
 		{
+			_mediator.PlayClickAudio();
 #if UNITY_EDITOR
 			EditorApplication.isPlaying = false;
 #else

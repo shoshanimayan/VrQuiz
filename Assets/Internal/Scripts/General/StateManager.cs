@@ -12,8 +12,6 @@ namespace Core
 	public class StateManager :  IDisposable
 	{
 
-
-
 		///  INSPECTOR VARIABLES      ///
 
 		///  PRIVATE VARIABLES         ///
@@ -37,9 +35,11 @@ namespace Core
 
 		private void SetState(State state)
 		{
-			_state = state;
-			_signalBus.Fire(new StateChangedSignal() { ToState = state });
-			
+			if (_state != state)
+			{
+				_state = state;
+				_signalBus.Fire(new StateChangedSignal() { ToState = state });
+			}
 		}
 
 
@@ -52,7 +52,7 @@ namespace Core
 		{
 
 			_signalBus = signalBus;
-			_state = State.Menu;
+			_state = State.Loading;
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
 

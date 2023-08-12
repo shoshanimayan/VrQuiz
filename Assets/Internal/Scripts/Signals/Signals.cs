@@ -35,7 +35,11 @@ namespace Signals
 	public class AudioBlipSignal
 	{
 		public string clipName;
-		public Transform transform = null;
+	}
+
+	public class AnswerSignal
+	{
+		public string Answer;
 	}
 
 	

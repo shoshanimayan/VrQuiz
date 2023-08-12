@@ -6,6 +6,7 @@ using UI;
 using Signals;
 using Gameplay;
 using Audio;
+using Network;
 
 public class MainInstaller : MonoInstaller
 {
@@ -23,7 +24,7 @@ public class MainInstaller : MonoInstaller
         Container.BindMediatorView<MusicMediator, MusicView>();
         Container.BindMediatorView<SoundEffectMediator, SoundEffectView>();
 
-        //   Container.BindMediatorView<QuizButtonMediator, QuizButtonView>();
+        Container.BindMediatorView<NetworkHandlerMediator,NetworkHandlerView>();
 
 
         //signals
@@ -33,7 +34,7 @@ public class MainInstaller : MonoInstaller
         Container.DeclareSignal<SetQuestionTimeSignal>();
         Container.DeclareSignal<SetTopScoreSignal>();
         Container.DeclareSignal<AudioBlipSignal>();
-
+        Container.DeclareSignal<AnswerSignal>();
 
 
     }

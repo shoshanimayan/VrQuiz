@@ -14,6 +14,12 @@ namespace Gameplay
 		[SerializeField] private TextMeshProUGUI _timerText;
 		[SerializeField] private TextMeshProUGUI _questionText;
 
+		[SerializeField] private TextMeshProUGUI _question1;
+		[SerializeField] private TextMeshProUGUI _question2;
+		[SerializeField] private TextMeshProUGUI _question3;
+		[SerializeField] private TextMeshProUGUI _question4;
+
+
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///

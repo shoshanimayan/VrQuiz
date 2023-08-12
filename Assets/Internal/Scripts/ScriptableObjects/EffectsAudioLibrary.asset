@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inspectorDictionary:
   - key: click
-    value: {fileID: 8300000, guid: 28ef5f145c7159b4d843382da4c57766, type: 3}
+    value: {fileID: 8300000, guid: 5a6f4637f13bf5f408d7f31deb2981c3, type: 3}
   - key: correct
     value: {fileID: 8300000, guid: 39fbbb4c47626ea4db62c75e2eec614c, type: 3}
   - key: Incorrect
