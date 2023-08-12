@@ -109,6 +109,8 @@ namespace Gameplay
 
 		public void ReturnToMenu()
 		{
+			_mediator.PlayClickAudio();
+
 			_mediator.ReturnToMenu();
 		}
 
