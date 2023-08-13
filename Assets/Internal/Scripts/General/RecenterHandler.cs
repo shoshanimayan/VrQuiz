@@ -52,6 +52,8 @@ namespace General
 			{
 				xrInput.TrySetTrackingOriginMode(TrackingOriginModeFlags.Device);
 				xrInput.TryRecenter();
+				xrInput.TrySetTrackingOriginMode(TrackingOriginModeFlags.Unknown);
+
 			}
 			else
 			{
