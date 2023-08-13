@@ -1,5 +1,5 @@
 # VrQuiz
- customizable vr quiz game played with motion controllers controller or hand tracking
+ customizable vr quiz game played with motion controllers or hand tracking
 
 connects to trivia API (https://the-trivia-api.com/) to create random quiz's of variable length
 
