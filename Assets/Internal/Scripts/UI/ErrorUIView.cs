@@ -43,8 +43,8 @@ namespace UI
 		}
 
 		public void ReturnToMenu()
-		{ 
-			
+		{
+			_mediator.ReturnToMenu();
 		}
 	}
 }

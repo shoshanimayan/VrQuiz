@@ -30,7 +30,7 @@ namespace Gameplay
 			else
 			{
 				Debug.LogError("COULD NO ACCESS API");
-
+				_signalBus.Fire(new StateChangeSignal { ToState = State.Error });
 			}
 
 		}
