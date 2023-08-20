@@ -8,7 +8,7 @@ using Signals;
 
 namespace Core
 {
-	public enum State {Menu,Play,Loading}
+	public enum State {Menu,Play,Loading, Error}
 	public class StateManager :  IDisposable
 	{
 

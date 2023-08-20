@@ -26,6 +26,7 @@ public class MainInstaller : MonoInstaller
         Container.BindMediatorView<SoundEffectMediator, SoundEffectView>();
         Container.BindMediatorView<NetworkHandlerMediator,NetworkHandlerView>();
         Container.BindMediatorView<TurnTypeMediator,TurnTypeView>();
+        Container.BindMediatorView<ErrorUIMediator, ErrorUIView>();
 
 
         //signals
